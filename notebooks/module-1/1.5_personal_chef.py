@@ -25,10 +25,22 @@ Return recipe suggestions and eventually the recipe instructions to the user, if
 
 """
 
+import os
+from langchain_ollama import ChatOllama
 from langchain.agents import create_agent
+from langgraph.checkpoint.memory import InMemorySaver
+
+model_name="granite4:1b"
+model_url=os.getenv('OLLAMA_HOST')
+
+model = ChatOllama(
+    model=model_name,
+    api_base=model_url
+)
 
 agent = create_agent(
-    model="gpt-5-nano",
+    model=model,
     tools=[web_search],
-    system_prompt=system_prompt
+    system_prompt=system_prompt,
+    checkpointer=InMemorySaver()
 )
