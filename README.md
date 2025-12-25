@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to LangChain Academy's Introduction to LangChain course!
+This fork includes the LangChain Academy's Introduction to LangChain course modified to run with local models running in Ollama.
 
 ---
 
@@ -34,10 +34,11 @@ cp example.env .env
 Edit the .env file to include the keys below. [More info](#model-providers)
 ```bash
 # Required for model usage
-OPENAI_API_KEY='your_openai_api_key_here'
+OLLAMA_
 TAVILY_API_KEY='your_tavily_api_key_here'
 
 # optional, only used in Lesson 1 once
+OPENAI_API_KEY='your_openai_api_key_here'
 ANTHROPIC_API_KEY='your_anthropic_api_key_here'
 GOOGLE_API_KEY='your_google_api_key_here'
 
