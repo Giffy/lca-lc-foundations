@@ -1,3 +1,8 @@
+# Requires a valid LANGSMITH_API_KEY
+# run it using:  uv run langgraph dev
+# and open gui in browser: http://127.0.0.1:2024/
+
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,7 +33,7 @@ Return recipe suggestions and eventually the recipe instructions to the user, if
 import os
 from langchain_ollama import ChatOllama
 from langchain.agents import create_agent
-from langgraph.checkpoint.memory import InMemorySaver
+#from langgraph.checkpoint.memory import InMemorySaver
 
 model_name="granite4:1b"
 model_url=os.getenv('OLLAMA_HOST')
@@ -42,5 +47,5 @@ agent = create_agent(
     model=model,
     tools=[web_search],
     system_prompt=system_prompt,
-    checkpointer=InMemorySaver()
+    #checkpointer=InMemorySaver()
 )
