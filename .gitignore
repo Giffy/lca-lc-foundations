@@ -210,3 +210,7 @@ __marimo__/
 **/.langgraph_api/
 .langgraph_api
 *.pckl
+
+# Test Files
+notebooks/module-2/bonus_rag_test.ipynb
+notebooks/module-2/resources/el_quijote.txt

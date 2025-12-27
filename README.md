@@ -182,9 +182,11 @@ Local models used in this lessons:
 
 | Model name | Command to install | Usage |
 |:---:|---|:---:|
-|granite4:1b| ollama pull granite4:1b | tool |
+|granite4:1b| ollama pull granite4:1b | tool/summarizer |
 |qwen3-vl:2b| ollama pull qwen3-vl:2b | multimodal |
+|ministral-3:3b| ollama pull ministral-3:3b | tool |
 |ministral-3:8b| ollama pull ministral-3:8b | tool |
+|nomic-embed-text:latest| ollama pull nomic-embed-text:latest | embeding |
 
 
 If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/). The course primarily uses gpt-5-nano which is very inexpensive.
