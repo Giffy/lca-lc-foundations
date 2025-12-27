@@ -12,6 +12,7 @@ This fork includes the LangChain Academy's Introduction to LangChain course modi
 
 - The Chrome browser is recommended
 - Ensure you're using Python >=3.12, <3.14 [More info](#python-virtual-environments)
+- Ensure Ollama is running (https://ollama.com/download)
 - A package/project manager: [uv](https://docs.astral.sh/uv/) (recommended) or [pip](https://pypi.org/project/pip/)
     - note: `uv` is also required in Module 2, Lesson 1 to run the MCP server with `uvx`
 
@@ -34,7 +35,7 @@ cp example.env .env
 Edit the .env file to include the keys below. [More info](#model-providers)
 ```bash
 # Required for model usage
-OLLAMA_
+OLLAMA_HOST=http://localhost:11434
 TAVILY_API_KEY='your_tavily_api_key_here'
 
 # optional, only used in Lesson 1 once
@@ -174,6 +175,17 @@ pip install -r requirements.txt
 </details>
 
 ### Model Providers
+
+Download ollama models typing in terminal: ollama pull <model-name>
+
+Local models used in this lessons:
+
+| Model name | Command to install | Usage |
+|:---:|---|:---:|
+|granite4:1b| ollama pull granite4:1b | tool |
+|qwen3-vl:2b| ollama pull qwen3-vl:2b | multimodal |
+
+
 
 If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/). The course primarily uses gpt-5-nano which is very inexpensive.
 You may also obtain additional API keys for [Anthropic](https://console.anthropic.com) or [Google](https://docs.langchain.com/oss/python/integrations/providers/google). These models are only used in the first lesson.
