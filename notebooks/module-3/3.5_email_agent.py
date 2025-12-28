@@ -7,9 +7,19 @@ from langchain.messages import ToolMessage
 from langchain.agents.middleware import wrap_model_call, dynamic_prompt, HumanInTheLoopMiddleware
 from langchain.agents.middleware import ModelRequest, ModelResponse
 from typing import Callable
+import os
+from langchain_ollama import ChatOllama
 
 load_dotenv()
 
+# Define model to use
+model_name="granite4:3b"
+model_url=os.getenv('OLLAMA_HOST')
+
+model = ChatOllama(
+    model=model_name,
+    api_base=model_url
+)
 
 @dataclass
 class EmailContext:
@@ -93,7 +103,7 @@ def dynamic_prompt_func(request: ModelRequest) -> str:
 
 
 agent = create_agent(
-        "gpt-5-nano",
+        model=model,
         tools=[authenticate, check_inbox, send_email],
         state_schema=AuthenticatedState,
         context_schema=EmailContext,
